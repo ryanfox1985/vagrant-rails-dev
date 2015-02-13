@@ -3,6 +3,17 @@ Sets up a basic Rails development box using vagrant based on Ubuntu with RVM, Ru
 Set up a Rails development box
 ==============================
 
+
+Enable Forwarding ssh keys
+--------------------------
+
+Setting this up is fairly straightforward. On the host machine, you need to add the following to ```~/.ssh/config``` (which you should create if it doesn’t exist):
+
+```
+host 10.0.2.15
+    ForwardAgent yes
+``
+
 Installation
 ------------
 

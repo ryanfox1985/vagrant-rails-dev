@@ -34,7 +34,7 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network 'private_network', :ip => '10.0.2.15'
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -76,18 +76,8 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
   
-  # COPY local SSH keys to vagrant host.
-  file_rsa_ssh_key = File.join(Dir.home, '.ssh', 'id_rsa')
-  file_rsa_ssh_key_pub = File.join(Dir.home, '.ssh', 'id_rsa.pub')
-
-  if File.exist?(file_rsa_ssh_key) && File.exist?(file_rsa_ssh_key_pub)
-    id_rsa_ssh_key = File.read(file_rsa_ssh_key)
-    id_rsa_ssh_key_pub = File.read(file_rsa_ssh_key_pub)
-
-    config.vm.provision :shell, :inline => "echo 'Creating folder SSH keys...' && mkdir -p /home/vagrant/.ssh"
-    config.vm.provision :shell, :inline => "echo 'Copying local id_rsa SSH Key to VM for git and auth purposes (login included)...' && echo '#{id_rsa_ssh_key}' > /home/vagrant/.ssh/id_rsa && chmod 600 /home/vagrant/.ssh/id_rsa && chown vagrant:vagrant /home/vagrant/.ssh/id_rsa"
-    config.vm.provision :shell, :inline => "echo 'Copying local id_rsa.pub SSH Key to VM for git and auth purposes (login included)...' && echo '#{id_rsa_ssh_key_pub}' > /home/vagrant/.ssh/id_rsa.pub && chmod 600 /home/vagrant/.ssh/id_rsa.pub && chown vagrant:vagrant /home/vagrant/.ssh/id_rsa.pub"
-  end
+  # Enable forwarding SSH keys.
+  config.ssh.forward_agent = true
 
   # Enable and configure chef solo
   config.vm.provision :chef_solo do |chef|
