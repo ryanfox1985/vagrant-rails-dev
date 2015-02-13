@@ -12,7 +12,7 @@ Setting this up is fairly straightforward. On the host machine, you need to add 
 ```
 host 10.0.2.15
     ForwardAgent yes
-``
+```
 
 Installation
 ------------
