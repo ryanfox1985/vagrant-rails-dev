@@ -32,6 +32,7 @@ Installation
 * Install vagrant using the installation instructions in the [Getting Started document](http://vagrantup.com/v1/docs/getting-started/index.html)
 * Install chef-dk [Chef Development Kit](https://downloads.chef.io/chef-dk)
 * Install berkshelf: ```$ vagrant plugin install vagrant-berkshelf``` [Berkshelf main web](http://berkshelf.com/)
+* Install vagrant triggers: ```$ vagrant plugin install vagrant-triggers```
 * Clone this repository*
 * ```$ vagrant up```
 
