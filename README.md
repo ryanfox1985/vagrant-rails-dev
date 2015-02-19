@@ -34,6 +34,7 @@ Installation
 * Install berkshelf: ```$ vagrant plugin install vagrant-berkshelf``` [Berkshelf main web](http://berkshelf.com/)
 * Install vagrant triggers: ```$ vagrant plugin install vagrant-triggers```
 * Clone this repository*
+* Remove always the Host-only adapter from Virtualbox -> Preferences -> Network.
 * ```$ vagrant up```
 
 Installed components

@@ -7,5 +7,5 @@ iface lo inet loopback
 
 auto eth1
 iface eth1 inet static
-      address 10.0.2.15
+      address 10.0.3.15
       netmask 255.255.255.0

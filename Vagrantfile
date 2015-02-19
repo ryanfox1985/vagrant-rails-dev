@@ -34,10 +34,10 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network 'private_network', :ip => '10.0.2.15', :auto_config => false
+  config.vm.network 'private_network', :ip => '10.0.3.15', :auto_config => false
 
   if File.exist?('.vagrant/interfaces')
-    config.ssh.host = '10.0.2.15'
+    config.ssh.host = '10.0.3.15'
     config.ssh.port = '22'
   end
 
@@ -84,7 +84,7 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  
+
   # Enable forwarding SSH keys.
   config.ssh.forward_agent = true
 
