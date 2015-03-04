@@ -19,7 +19,8 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = 'ubuntu/trusty64'
+  #config.vm.box = 'ubuntu/trusty64'
+  config.vm.box = 'hashicorp/precise32'
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -34,16 +35,7 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network 'private_network', :ip => '10.0.3.15', :auto_config => false
-
-  if File.exist?('.vagrant/interfaces')
-    config.ssh.host = '10.0.3.15'
-    config.ssh.port = '22'
-  end
-
-  config.trigger.after :destroy do
-    run 'rm .vagrant/interfaces'
-  end
+  #config.vm.network 'private_network', :ip => '10.0.3.15'
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -60,10 +52,10 @@ Vagrant.configure(2) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider 'virtualbox' do |vb|
-    #   # Display the VirtualBox GUI when booting the machine
-    #   vb.gui = true
-    #
-    #   # Customize the amount of memory on the VM:
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+
+    # Customize the amount of memory on the VM:
     vb.memory = '1024'
   end
   #

@@ -13,6 +13,14 @@ template '/etc/mysql/my.cnf' do
   mode 0600
 end
 
+template '/etc/init/mysql.conf' do
+  source 'mysql.conf'
+  owner 'root'
+  group 'root'
+
+  mode 0644
+end
+
 execute 'mysql-start' do
   cwd '/home/vagrant'
   user 'root'
@@ -20,15 +28,6 @@ execute 'mysql-start' do
   action :run
 
   command 'service mysql start'
-end
-
-execute 'mysql-on-startup' do
-  cwd '/home/vagrant'
-  user 'root'
-  group 'root'
-  action :run
-
-  command 'update-rc.d mysql defaults'
 end
 
 execute 'mysql-privileges' do

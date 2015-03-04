@@ -1,19 +1,3 @@
-template '/etc/network/interfaces' do
-  source 'interfaces'
-  owner 'root'
-  group 'root'
-
-  mode 0644
-end
-
-template '/vagrant/.vagrant/interfaces' do
-  source 'interfaces'
-  owner 'vagrant'
-  group 'vagrant'
-
-  mode 0644
-end
-
 execute 'Add vagrant to rvm group' do
   cwd '/home'
   user 'root'
